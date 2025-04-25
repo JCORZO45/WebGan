@@ -1,0 +1,11 @@
+<!-- filepath: c:\Users\josep\Desktop\ProyectoGanaderApp\Proyecto_Django\WebGan\AppGan\templates\perfil.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content">
+    <h1>Perfil de Usuario</h1>
+    <p><strong>Nombre de Usuario:</strong> {{ user.username }}</p>
+    <p><strong>Correo Electrónico:</strong> {{ user.email }}</p>
+    <p><strong>Fecha de Registro:</strong> {{ user.date_joined }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content">
+    <h1>Crear Nuevo Lote</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="lot_name">Nombre del Lote:</label>
+            <input type="text" id="lot_name" name="lot_name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="type">Tipo:</label>
+            <input type="text" id="type" name="type" required>
+        </div>
+        <div class="form-group">
+            <label for="ability">Capacidad:</label>
+            <input type="number" id="ability" name="ability" required>
+        </div>
+        <button type="submit" class="btn-register">Crear Lote</button>
+    </form>
+</div>
+{% endblock %}

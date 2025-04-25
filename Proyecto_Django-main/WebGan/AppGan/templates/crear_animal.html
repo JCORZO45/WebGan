@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content" style="padding: 30px; max-width: 800px; width: 100%; margin: 0 auto;">
+    <h1>Registrar Animal</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="weight">Peso:</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
+        <div>
+            <label for="birth_date">Fecha de Nacimiento:</label>
+            <input type="date" id="birth_date" name="birth_date" required>
+        </div>
+        <div>
+            <label for="lot">Lote:</label>
+            <select id="lot" name="lot" required>
+                {% for lot in lots %}
+                <option value="{{ lot.id }}">{{ lot.lot_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="vaccines">Vacunas:</label>
+            <select id="vaccines" name="vaccines" multiple>
+                {% for vaccine in vaccines %}
+                <option value="{{ vaccine.id }}">{{ vaccine.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success" style="background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px;">Guardar</button>
+    </form>
+</div>
+{% endblock %}

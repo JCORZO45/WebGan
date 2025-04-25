@@ -1,0 +1,41 @@
+<!-- filepath: c:\Users\USUARIO\Downloads\Proyecto_Gan\Proyecto_Django-main\WebGan\AppGan\templates\animales.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content" style="padding: 30px; max-width: 1200px; width: 100%; margin: 0 auto;">
+    <h1>Listado de Animales</h1>
+    <br>
+    <a href="{% url 'crear_animal' %}" class="btn btn-success" style="background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Registrar Animal</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Peso</th>
+                <th>Lote</th>
+                <th>Vacunas</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody style="font-size: 1.1rem;"> <!-- Agranda el texto del tbody -->
+            {% for animal in animales %}
+            <tr>
+                <td>{{ animal.name }}</td>
+                <td>{{ animal.weight }}</td>
+                <td>{{ animal.lot.lot_name }}</td>
+                <td>
+                    {% for animal_vaccine in animal.animalvaccines_set.all %}
+                        {{ animal_vaccine.vaccine.name }} ({{ animal_vaccine.date_application }}){% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="{% url 'editar_animal' animal.code_number %}" class="btn btn-primary" style="background-color: #007bff; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Editar</a>
+                        <a href="{% url 'eliminar_animal' animal.code_number %}" class="btn btn-danger" style="background-color: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content" style="padding: 30px; max-width: 600px; width: 100%; margin: 0 auto; text-align: center;">
+    <h1>Eliminar Animal</h1>
+    <p>¿Estás seguro de que deseas eliminar el animal <strong>{{ animal.name }}</strong>?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" style="background-color: #dc3545; color: white; padding: 10px 20px; border-radius: 5px;">Eliminar</button>
+        <a href="{% url 'animales' %}" class="btn btn-secondary" style="background-color: #6c757d; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

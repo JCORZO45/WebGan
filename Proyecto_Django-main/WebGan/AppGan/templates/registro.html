@@ -1,0 +1,21 @@
+<!-- filepath: c:\Users\josep\Desktop\ProyectoGanaderApp\Proyecto_Django\WebGan\AppGan\templates\registro.html -->
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="hero-content">
+    <h1>Registro</h1>
+    <form method="post" class="register-form">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Renderiza automáticamente los campos del formulario -->
+        <button type="submit" class="btn-register">Registrarse</button>
+    </form>
+    <p class="login-link">¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a></p>
+</div>
+{% endblock %}

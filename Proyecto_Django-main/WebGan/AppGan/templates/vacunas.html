@@ -1,0 +1,29 @@
+<!-- filepath: c:\Users\USUARIO\Downloads\Proyecto_Gan\Proyecto_Django-main\WebGan\AppGan\templates\vacunas.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content">
+    <h1>Listado de Vacunas</h1>
+    <br> <!-- Added space -->
+    
+    <a href="{% url 'crear_vacuna' %}" class="btn btn-success" style="background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Crear Vacuna</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Estado</th> <!-- Updated header -->
+                <th>Fecha de Aplicación</th> <!-- Updated header -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for vacuna in vacunas %}
+            <tr>
+                <td>{{ vacuna.name }}</td>
+                <td>{{ vacuna.state }}</td> <!-- Updated field -->
+                <td>{{ vacuna.application_date }}</td> <!-- Updated field -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

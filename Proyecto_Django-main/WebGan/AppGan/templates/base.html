@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MiRanchito</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png"> <!-- Logo en el navegador -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+
+    <!-- Header con NavBar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="MiRanchito Logo" class="logo-img">
+                <span class="title">MiRanchito</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'lotes' %}">Lotes</a></li>
+                <li><a href="{% url 'vacunas' %}">Vacunas</a></li>
+                <li><a href="{% url 'animales' %}">Registro de Ganado</a></li>
+            </ul>
+            <div class="user-menu">
+                {% if user.is_authenticated %}
+                    <span class="user-name">Hola, {{ user.username }}</span>
+                    <div class="dropdown">
+                        <img src="{% static 'images/user-icon.png' %}" alt="Usuario" class="user-icon">
+                        <div class="dropdown-content">
+                            <a href="{% url 'perfil' %}">Ver Perfil</a>
+                            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{% url 'login' %}">
+                        <img src="{% static 'images/login-icon.png' %}" alt="Login" class="login-icon">
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mensajes -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Contenido dinámico -->
+    <section class="hero" style="margin-top: 70px;"> <!-- Ajusta el margen según la altura del navbar -->
+        {% block content %}
+        <!-- Este bloque será reemplazado por el contenido dinámico de cada página -->
+        {% endblock %}
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 MiRanchito. Todos los derechos reservados. bucaroscampeon
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

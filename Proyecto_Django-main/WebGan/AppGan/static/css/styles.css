@@ -1,0 +1,570 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Fondo negro elegante */
+    color: #e0e0e0; /* Texto gris claro */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* Blanco para encabezados */
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #bdbdbd; /* Texto gris medio */
+}
+
+/* Estilo para el navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Espaciado uniforme entre los elementos */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con 50% de opacidad */
+    padding: 10px 20px; /* Márgenes internos */
+    color: #ffffff; /* Texto blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el navbar */
+    position: fixed; /* Fija el navbar en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000; /* Asegura que el navbar esté por encima del contenido */
+    font-family: 'Arial', sans-serif; /* Fuente consistente con el resto de la página */
+}
+
+/* Centrar los enlaces del navbar */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Espaciado uniforme entre los enlaces */
+    margin: 0 auto; /* Centra los enlaces horizontalmente */
+    padding: 0;
+}
+
+/* Estilo para el logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre el logo y el título */
+}
+
+.logo-img {
+    width: 40px; /* Tamaño del logo */
+    height: 40px;
+    object-fit: cover;
+}
+
+/* Cambiar el color del título a blanco */
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Blanco */
+}
+
+/* Estilo para los enlaces del navbar */
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #81c784; /* Verde suave */
+}
+
+/* Estilo para el menú de usuario */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    font-size: 1rem;
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+}
+
+.user-icon, .login-icon {
+    width: 30px; /* Tamaño fijo del ícono */
+    height: 30px;
+    border-radius: 50%; /* Hace que el ícono sea circular */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background: url('../images/Imagen_inicial.jpg') no-repeat center center/cover; /* Imagen de fondo */
+    z-index: 1; /* Asegura que esté detrás del navbar */
+    display: flex; /* Activa flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Hero Content */
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 15px 20px; /* Reduce el padding */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Sombra */
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+    width: 400px; /* Reduce el ancho */
+    max-width: 90%; /* Asegura que sea responsivo */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Main Content */
+main {
+    margin-top: 80px; /* Ajusta según la altura del navbar */
+    padding: 20px;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffffff; /* Blanco */
+}
+
+main p {
+    font-size: 1.1rem;
+    color: #bdbdbd; /* Gris medio */
+}
+
+/* Footer */
+footer {
+    background-color: #1f1f1f; /* Negro más oscuro */
+    color: #e0e0e0; /* Gris claro */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Botones generales */
+button {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente del botón */
+    font-weight: normal;
+    background-color: #81c784; /* Verde suave */
+    color: #ffffff; /* Texto negro */
+    border: none;
+    padding: 10px 20px; /* Original button padding */
+    border-radius: 5px; /* Original corners */
+    cursor: pointer;
+    font-size: 1rem; /* Original button size */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #66bb6a; /* Verde más oscuro */
+}
+
+/* Estilo para el formulario de inicio de sesión */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between fields */
+    width: 100%;
+    max-width: 300px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-form label {
+    font-size: 1.2rem; /* Larger labels */
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 5px;
+}
+
+.login-form input {
+    padding: 12px; /* Larger input fields */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Softer corners */
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    border-color: #81c784; /* Verde suave */
+    outline: none;
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.8); /* Green glow */
+}
+
+.btn-login {
+    background-color: #81c784; /* Verde suave */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 12px 25px; /* Larger button size */
+    border-radius: 8px; /* Softer corners */
+    font-size: 1.2rem; /* Larger button text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #66bb6a; /* Verde más oscuro */
+}
+
+/* Estilo para el formulario de registro */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between fields */
+    width: 100%;
+    max-width: 300px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+.register-form button {
+    background-color: #81c784; /* Verde suave */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 12px 25px; /* Larger button size */
+    border-radius: 8px; /* Softer corners */
+    font-size: 1.2rem; /* Larger button text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+    background-color: #66bb6a; /* Verde más oscuro */
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.login-link a {
+    color: #81c784;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.register-form, .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between fields */
+    width: 100%;
+    max-width: 300px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+.register-form .form-group, .login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.register-form label, .login-form label {
+    font-size: 1.2rem; /* Larger labels */
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 5px;
+}
+
+.register-form input, .login-form input {
+    padding: 12px; /* Larger input fields */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Softer corners */
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.register-form input:focus, .login-form input:focus {
+    border-color: #81c784; /* Verde suave */
+    outline: none;
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.8); /* Green glow */
+}
+
+.btn-register, .btn-login {
+    background-color: #81c784; /* Verde suave */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 12px 25px; /* Larger button size */
+    border-radius: 8px; /* Softer corners */
+    font-size: 1.2rem; /* Larger button text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover, .btn-login:hover {
+    background-color: #66bb6a; /* Verde más oscuro */
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.register-link a {
+    color: #81c784;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para mensajes */
+.messages {
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.message.success {
+    background-color: #81c784; /* Verde suave */
+}
+
+.message.error {
+    background-color: #e57373; /* Rojo suave */
+}
+
+/* Estilo para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #1f1f1f; /* Fondo oscuro */
+    min-width: 200px; /* Wider dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #333333; /* Fondo más oscuro al pasar el cursor */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Mostrar el menú desplegable al pasar el cursor */
+}
+
+.user-menu img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Estilo para los íconos del usuario y de inicio de sesión */
+.user-icon, .login-icon {
+    width: 30px; /* Tamaño fijo del ícono */
+    height: 30px; /* Tamaño fijo del ícono */
+    border-radius: 50%; /* Hace que el ícono sea circular */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    cursor: pointer;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Original spacing */
+    width: 100%;
+    max-width: 400px; /* Updated form width */
+    margin: 0 auto; /* Centered horizontally */
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    font-size: 1rem; /* Original label size */
+    margin-bottom: 5px;
+    color: #ffffff; /* White text */
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px; /* Original input padding */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Original corners */
+    box-sizing: border-box;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #81c784; /* Green border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(129, 199, 132, 0.5); /* Original glow */
+}
+
+button {
+    background-color: #81c784; /* Updated button background */
+    color: #ffffff; /* Updated button text color */
+    border: none;
+    padding: 10px 20px; /* Original button padding */
+    border-radius: 5px; /* Original corners */
+    font-size: 1rem; /* Original button size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #66bb6a; /* Updated hover background */
+}
+
+/* Formulario de Lotes */
+.form-lote {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-lote .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-lote label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-lote input, .form-lote textarea, .form-lote select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-lote input:focus, .form-lote textarea:focus, .form-lote select:focus {
+    border-color: #81c784;
+    outline: none;
+    box-shadow: 0 0 5px rgba(129, 199, 132, 0.5);
+}
+
+.btn-register, .btn-assign {
+    background-color: #81c784;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover, .btn-assign:hover {
+    background-color: #66bb6a;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-top: 20px; /* Reduced margin */
+    border-collapse: collapse;
+    font-size: 0.9rem; /* Smaller table text */
+    color: #ffffff;
+}
+
+table th, table td {
+    padding: 10px; /* Reduced padding */
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+table th {
+    background-color: #333;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem; /* Smaller header text */
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+table tr:hover {
+    background-color: rgba(129, 199, 132, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Ocultar los enlaces del navbar en pantallas pequeñas */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-menu {
+        justify-content: flex-start;
+    }
+
+    .hero-content {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    form {
+        max-width: 100%; /* Adjust form width for smaller screens */
+    }
+
+    table {
+        font-size: 1rem; /* Adjust table font size */
+    }
+}

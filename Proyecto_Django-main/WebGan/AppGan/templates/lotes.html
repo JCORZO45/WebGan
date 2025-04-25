@@ -1,0 +1,33 @@
+<!-- filepath: c:\Users\USUARIO\Downloads\Proyecto_Gan\Proyecto_Django-main\WebGan\AppGan\templates\lotes.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-content">
+    <h1>Listado de Lotes</h1>
+    <br>
+    
+    <a href="{% url 'crear_lote' %}" class="btn btn-success" style="background-color: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Crear Lote</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Peso Promedio</th>
+                <th>Capacidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lote in lotes %}
+            <tr>
+                <td>{{ lote.lot_name }}</td>
+                <td>{{ lote.avg_weight|default:0 }}</td>
+                <td>{{ lote.animal_count }}/{{ lote.ability }}</td>
+                <td>
+                    <a href="{% url 'eliminar_lote' lote.id %}" class="btn btn-danger" style="background-color: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-weight: bold;">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
