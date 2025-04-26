@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Avg, Count, Q
 from .forms import RegistroForm
@@ -184,3 +184,7 @@ def crear_vacuna_view(request):
 def vacunas_view(request):
     vacunas = Vaccines.objects.filter(user=request.user)
     return render(request, 'vacunas.html', {'vacunas': vacunas})
+
+def logout_view(request):
+    logout(request)  # Cierra la sesión del usuario
+    return redirect('login')  # Redirige al login después del logout

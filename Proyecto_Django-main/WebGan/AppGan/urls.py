@@ -1,12 +1,12 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from . import views
-from .views import animales_view, crear_animal_view, editar_animal_view, eliminar_animal_view, crear_vacuna_view
+from .views import animales_view, crear_animal_view, editar_animal_view, eliminar_animal_view, crear_vacuna_view, logout_view  # Importar la vista personalizada
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('login/', views.login_view, name='login'),
-    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),  # Redirige al inicio después del logout
+    path('logout/', logout_view, name='logout'),  # Usar la vista personalizada para logout
     path('registro/', views.registro_view, name='registro'),
     path('acerca-de-nosotros/', views.acerca_de_nosotros, name='acerca_de_nosotros'),
     path('perfil/', views.perfil_view, name='perfil'),

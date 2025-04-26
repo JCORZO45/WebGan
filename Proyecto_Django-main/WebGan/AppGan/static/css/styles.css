@@ -98,6 +98,28 @@ p {
     cursor: pointer;
 }
 
+/* Contenedor del ícono de inicio de sesión */
+.login-icon-container {
+    display: inline-block;
+    background-color: #28a745; /* Fondo verde */
+    padding: 5px; /* Espaciado interno */
+    border-radius: 50%; /* Bordes redondeados */
+    margin-right: 20px; /* Mover más a la izquierda */
+    transition: background-color 0.3s ease;
+}
+
+.login-icon-container:hover {
+    background-color: #218838; /* Fondo verde más oscuro al pasar el cursor */
+}
+
+/* Ícono de inicio de sesión */
+.login-icon {
+    width: 30px; /* Tamaño del ícono */
+    height: 30px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
